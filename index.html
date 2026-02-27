@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sujeet Kumar Sharma — Business Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ══════════ RESET + ROOT ══════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --c0:#04070e; --c1:#070c17; --c2:#0b1120; --c3:#111827;
+  --bdr:rgba(255,255,255,.07); --bdr2:rgba(255,255,255,.13);
+  --a:#38bdf8; --a2:#fb923c; --grn:#34d399; --pur:#a78bfa;
+  --txt:#f0f4f8; --mut:#8898aa; --dim:#3a4f62;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--c0);color:var(--txt);font-family:'Outfit',sans-serif;font-weight:400;line-height:1.65;overflow-x:hidden;cursor:none;}
+::selection{background:rgba(56,189,248,.22);color:#fff;}
+::-webkit-scrollbar{width:3px;}::-webkit-scrollbar-track{background:var(--c0);}::-webkit-scrollbar-thumb{background:var(--a);}
+a{text-decoration:none;color:inherit;}
+
+/* ══════════ CURSOR ══════════ */
+#cur{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--a);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;transition:width .22s,height .22s,background .22s,opacity .3s;}
+#cur-ring{position:fixed;width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(56,189,248,.45);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s;}
+body:has(a:hover,button:hover,label:hover) #cur{width:20px;height:20px;background:#fff;}
+body:has(a:hover,button:hover,label:hover) #cur-ring{width:56px;height:56px;border-color:rgba(255,255,255,.28);}
+
+/* ══════════ PROGRESS BAR ══════════ */
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--a),#60a5fa,var(--a2));z-index:1001;}
+
+/* ══════════ PARTICLES ══════════ */
+#ptc{position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.38;}
+
+/* ══════════ ANIMATION ENGINE ══════════ */
+/* Scroll reveal */
+.sr{opacity:0;transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1);}
+.sr.up{transform:translateY(54px);}
+.sr.left{transform:translateX(-54px);}
+.sr.right{transform:translateX(54px);}
+.sr.scale{transform:scale(.87);}
+.sr.fade{transform:none;}
+.sr.vis{opacity:1!important;transform:none!important;}
+.d1.vis{transition-delay:.08s!important}.d2.vis{transition-delay:.17s!important}
+.d3.vis{transition-delay:.26s!important}.d4.vis{transition-delay:.35s!important}
+.d5.vis{transition-delay:.44s!important}.d6.vis{transition-delay:.54s!important}
+
+/* Shimmer */
+.shim{overflow:hidden;}
+.shim::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(56,189,248,.06) 50%,transparent 62%);background-size:230% 100%;animation:shimAni 5s linear infinite;}
+@keyframes shimAni{0%{background-position:230% 0}100%{background-position:-230% 0}}
+
+/* ══════════ NAV ══════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.82rem 3rem;
+  background:rgba(4,7,14,.86);
+  backdrop-filter:blur(26px) saturate(200%);
+  -webkit-backdrop-filter:blur(26px) saturate(200%);
+  border-bottom:1px solid var(--bdr);
+}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:.9rem;letter-spacing:.18em;color:var(--a);text-transform:uppercase;transition:opacity .2s;}
+.nav-logo:hover{opacity:.72;}
+.nav-links{display:flex;gap:1.8rem;list-style:none;}
+.nav-links a{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.09em;color:rgba(255,255,255,.42);text-transform:uppercase;position:relative;padding-bottom:2px;transition:color .25s;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.nav-links a:hover,.nav-links a.active{color:var(--a);}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+.nav-hire{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.08em;padding:.36rem 1.05rem;border:1px solid var(--a);color:var(--a);border-radius:100px;text-transform:uppercase;transition:all .25s;position:relative;overflow:hidden;}
+.nav-hire::before{content:'';position:absolute;inset:0;background:var(--a);transform:scaleX(0);transform-origin:left;transition:transform .3s cubic-bezier(.16,1,.3,1);z-index:-1;}
+.nav-hire:hover::before{transform:scaleX(1);}
+.nav-hire:hover{color:var(--c0);}
+
+/* ══════════ SHARED SECTION ══════════ */
+.sec{padding:5rem 3rem;position:relative;z-index:1;}
+.si{max-width:1160px;margin:0 auto;}
+.eyebrow{display:flex;align-items:center;gap:.85rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--a);margin-bottom:.6rem;}
+.eyebrow::before{content:'';width:22px;height:1px;background:var(--a);}
+.sec-ttl{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.025em;margin-bottom:2.5rem;line-height:1.08;}
+.sec-ttl .g{background:linear-gradient(135deg,var(--a),rgba(255,255,255,.72));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+/* ══════════════════════════════════════════
+   SECTION 1 — PROFILE (first, full-screen)
+══════════════════════════════════════════ */
+#profile{
+  min-height:100vh;background:var(--c1);
+  display:flex;align-items:center;
+  padding:7rem 3rem 5rem;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--bdr);
+}
+/* subtle animated mesh background */
+#profile::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 30% 50%,rgba(56,189,248,.09),transparent 65%),
+             radial-gradient(ellipse 50% 45% at 85% 20%,rgba(167,139,250,.07),transparent 55%);
+  animation:meshShift 14s ease-in-out infinite alternate;
+}
+@keyframes meshShift{0%{opacity:1}100%{opacity:.6}}
+/* fine grid */
+#profile::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+}
+
+.profile-inner{
+  max-width:1160px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:auto 1fr;gap:5rem;align-items:center;
+  position:relative;z-index:2;
+}
+
+/* ── Photo ── */
+.photo-zone{position:relative;flex-shrink:0;width:240px;height:240px;}
+
+/* Outer dashed orbit ring */
+.photo-zone::before{
+  content:'';position:absolute;inset:-14px;border-radius:50%;
+  border:2px dashed rgba(56,189,248,.2);
+  animation:orb 22s linear infinite;
+}
+/* Glowing sweep ring */
+.photo-zone::after{
+  content:'';position:absolute;inset:-14px;border-radius:50%;
+  border:2px solid transparent;
+  border-top-color:var(--a);border-right-color:rgba(56,189,248,.35);
+  animation:orb 6s linear infinite;
+  filter:drop-shadow(0 0 6px rgba(56,189,248,.6));
+}
+@keyframes orb{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+.photo-ring{
+  width:240px;height:240px;border-radius:50%;
+  background:conic-gradient(var(--a),#60a5fa,var(--a2),var(--a));
+  padding:3px;
+  animation:orb 5s linear infinite;
+  position:relative;z-index:1;
+}
+.photo-inner{
+  width:100%;height:100%;border-radius:50%;
+  background:var(--c2);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  animation:orb 5s linear infinite reverse;
+}
+#photoImg{width:100%;height:100%;object-fit:cover;object-position:center top;display:none;}
+.photo-ph{display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--mut);}
+.photo-ph-ico{font-size:3.2rem;opacity:.38;}
+.photo-ph-txt{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;opacity:.38;}
+.upload-btn{position:absolute;bottom:8px;right:8px;width:38px;height:38px;border-radius:50%;background:var(--a);border:3px solid var(--c1);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;box-shadow:0 4px 20px rgba(56,189,248,.5);transition:transform .25s,box-shadow .25s;}
+.upload-btn:hover{transform:scale(1.15);box-shadow:0 8px 30px rgba(56,189,248,.65);}
+.upload-btn svg{width:16px;height:16px;stroke:#04070e;stroke-width:2.5;fill:none;}
+#photoFile{display:none;}
+
+/* ── Profile right side ── */
+.profile-right{}
+
+/* Name — split line animation */
+.p-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.3rem,4.2vw,3.6rem);letter-spacing:-.03em;line-height:.95;margin-bottom:.5rem;}
+.p-name .pn-line{display:block;overflow:hidden;}
+.p-name .pn-i{display:block;}
+
+.p-title{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:1.25rem;}
+.p-bio{font-size:.97rem;color:rgba(255,255,255,.5);line-height:1.92;margin-bottom:1.75rem;font-weight:300;max-width:570px;}
+
+/* Self-assessment */
+.self-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:.65rem;display:flex;align-items:center;gap:.75rem;}
+.self-label::before{content:'';width:18px;height:1px;background:var(--mut);}
+.self-row{display:flex;flex-wrap:wrap;gap:.45rem;}
+.self-pill{
+  display:inline-flex;align-items:center;gap:.45rem;
+  font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;
+  padding:.38rem .85rem;border:1px solid var(--bdr2);border-radius:100px;
+  color:var(--mut);background:var(--c2);transition:all .25s;
+}
+.self-pill svg{width:12px;height:12px;stroke:var(--a);stroke-width:2;fill:none;flex-shrink:0;}
+.self-pill:hover{border-color:rgba(56,189,248,.35);color:var(--txt);background:var(--c3);}
+
+/* ══════════════════════════════════════════
+   SECTION 2 — OPPORTUNITY (available + stats)
+══════════════════════════════════════════ */
+#opportunity{
+  min-height:100vh;background:var(--c0);
+  display:flex;align-items:center;
+  padding:6rem 3rem 5rem;position:relative;overflow:hidden;
+}
+.opp-glow{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 70% 55% at 65% 0%,rgba(56,189,248,.11),transparent 60%),
+             radial-gradient(ellipse 50% 45% at -5% 85%,rgba(56,189,248,.07),transparent 55%);
+  animation:glowP 10s ease-in-out infinite alternate;}
+@keyframes glowP{0%{opacity:1}100%{opacity:.6}}
+.opp-grid-bg{position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
+  background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+  animation:gDrift 30s linear infinite;}
+@keyframes gDrift{0%{background-position:0 0}100%{background-position:64px 64px}}
+
+.opp-inner{
+  max-width:1160px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1fr 300px;gap:4rem;align-items:center;
+  position:relative;z-index:2;
+}
+
+/* Live badge */
+.live-badge{display:inline-flex;align-items:center;gap:.65rem;font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.22em;text-transform:uppercase;color:var(--a);margin-bottom:1.75rem;}
+.live-dot{width:7px;height:7px;border-radius:50%;background:var(--grn);animation:ld 2.2s ease infinite;}
+@keyframes ld{0%{box-shadow:0 0 0 0 rgba(52,211,153,.5)}70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+
+/* Big tagline — each line clips up */
+.opp-tagline{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.6rem,5.5vw,5rem);line-height:.93;letter-spacing:-.032em;margin-bottom:1.5rem;}
+.opp-tagline .tl{display:block;overflow:hidden;}
+.opp-tagline .tl-i{display:block;transform:translateY(110%);transition:transform .85s cubic-bezier(.16,1,.3,1);}
+.opp-tagline .tl:nth-child(1) .tl-i{transition-delay:.05s;color:rgba(255,255,255,.2);-webkit-text-stroke:1px rgba(255,255,255,.18);}
+.opp-tagline .tl:nth-child(2) .tl-i{transition-delay:.2s;color:#fff;}
+.opp-tagline .tl:nth-child(3) .tl-i{transition-delay:.35s;background:linear-gradient(135deg,var(--a),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.opp-tagline.animate .tl-i{transform:none;}
+
+.desig-row{display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;flex-wrap:wrap;}
+.desig-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.06em;padding:.4rem 1rem;border-radius:100px;background:linear-gradient(135deg,rgba(56,189,248,.15),rgba(96,165,250,.1));border:1px solid rgba(56,189,248,.3);color:var(--a);}
+.exp-badge{font-family:'JetBrains Mono',monospace;font-size:.67rem;padding:.3rem .8rem;border-radius:100px;background:rgba(251,146,60,.1);border:1px solid rgba(251,146,60,.3);color:var(--a2);}
+.opp-sub{font-size:.97rem;color:rgba(255,255,255,.5);max-width:560px;line-height:1.92;margin-bottom:1.75rem;font-weight:300;}
+.dpills{display:flex;flex-wrap:wrap;gap:.42rem;margin-bottom:2.25rem;}
+.dpill{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;padding:.25rem .72rem;border-radius:100px;border:1px solid var(--bdr2);color:var(--mut);transition:all .25s;}
+.dpill:hover{border-color:var(--a);color:var(--a);}
+.opp-cta{display:flex;gap:.75rem;flex-wrap:wrap;}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.74rem 1.65rem;font-family:'JetBrains Mono',monospace;font-size:.67rem;letter-spacing:.09em;text-transform:uppercase;border-radius:100px;transition:all .3s cubic-bezier(.16,1,.3,1);cursor:none;border:none;white-space:nowrap;position:relative;overflow:hidden;}
+.btn:hover{transform:translateY(-2px);}
+.btn-wa{background:#25d366;color:#fff;}.btn-wa:hover{box-shadow:0 12px 30px rgba(37,211,102,.32);}
+.btn-primary{background:linear-gradient(135deg,var(--a),#60a5fa);color:var(--c0);font-weight:500;}.btn-primary:hover{box-shadow:0 12px 36px rgba(56,189,248,.38);}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.6);border:1px solid var(--bdr2);}.btn-ghost:hover{border-color:var(--a);color:var(--a);}
+
+/* Stat cards */
+.stat-stack{display:flex;flex-direction:column;gap:.7rem;}
+.stat-card{background:var(--c2);border:1px solid var(--bdr);padding:1.2rem 1.55rem;border-radius:14px;position:relative;overflow:hidden;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;}
+.stat-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--a),rgba(56,189,248,.1));}
+.stat-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(56,189,248,.055) 50%,transparent 62%);background-size:220% 100%;animation:shimAni 4.5s linear infinite;}
+.stat-card:hover{border-color:rgba(56,189,248,.35);transform:translateX(-5px)!important;box-shadow:6px 0 28px rgba(56,189,248,.09);}
+.sn{font-family:'Syne',sans-serif;font-weight:800;font-size:2.2rem;line-height:1;background:linear-gradient(135deg,var(--a) 30%,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:baseline;gap:1px;position:relative;z-index:1;}
+.ss{font-size:1.25rem;background:linear-gradient(135deg,var(--a) 30%,#fff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.sl{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-top:.2rem;position:relative;z-index:1;}
+
+/* ══════════════════════════════════════════
+   SECTION 3 — SKILLS
+══════════════════════════════════════════ */
+#skills{background:var(--c1);}
+.skills-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--bdr);border-radius:14px;overflow:hidden;
+}
+.sg{background:var(--c2);padding:1.55rem 1.7rem;border-right:1px solid var(--bdr);border-bottom:1px solid var(--bdr);transition:background .25s,border-color .3s;}
+.sg:hover{background:var(--c3);}
+.sg:nth-child(3n){border-right:none;}
+.sg:nth-last-child(-n+3){border-bottom:none;}
+.sg-head{display:flex;align-items:center;gap:.65rem;margin-bottom:.9rem;}
+.sg-ico{width:32px;height:32px;border-radius:8px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.sg-ico svg{width:15px;height:15px;stroke:var(--a);stroke-width:2;fill:none;}
+.sg-ico.o{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.2);}
+.sg-ico.o svg{stroke:var(--a2);}
+.sg-ico.pur{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.2);}
+.sg-ico.pur svg{stroke:var(--pur);}
+.sg-ico.grn{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.2);}
+.sg-ico.grn svg{stroke:var(--grn);}
+.sg-ico.red{background:rgba(248,113,113,.1);border-color:rgba(248,113,113,.2);}
+.sg-ico.red svg{stroke:#f87171;}
+.sg-ttl{font-family:'JetBrains Mono',monospace;font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a2);}
+.tags{display:flex;flex-wrap:wrap;gap:.38rem;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:.59rem;padding:.22rem .6rem;border:1px solid var(--bdr);color:var(--mut);border-radius:4px;transition:all .2s;cursor:default;}
+.tag:hover{border-color:var(--a);color:var(--a);background:rgba(56,189,248,.06);}
+
+/* ══════════════════════════════════════════
+   SECTION 4 — EXPERIENCE
+══════════════════════════════════════════ */
+#experience{background:var(--c0);}
+.timeline{position:relative;}
+.timeline::before{content:'';position:absolute;left:10px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--a),rgba(56,189,248,.12) 80%,transparent);}
+.exp-item{padding-left:3.2rem;padding-bottom:2.5rem;position:relative;}
+.exp-item:last-child{padding-bottom:0;}
+.exp-node{position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;background:var(--c0);border:2px solid var(--a);display:flex;align-items:center;justify-content:center;transition:box-shadow .3s;}
+.exp-node::after{content:'';width:7px;height:7px;border-radius:50%;background:var(--a);}
+.exp-item:hover .exp-node{box-shadow:0 0 0 6px rgba(56,189,248,.12);}
+.exp-card{background:var(--c2);border:1px solid var(--bdr);border-radius:14px;padding:1.6rem 1.9rem;transition:border-color .3s,transform .38s cubic-bezier(.16,1,.3,1),box-shadow .38s;position:relative;overflow:hidden;}
+.exp-card:hover{border-color:rgba(56,189,248,.22);transform:translateX(6px);box-shadow:0 8px 40px rgba(0,0,0,.38);}
+/* accent left bar */
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--a),transparent);opacity:0;transition:opacity .3s;}
+.exp-card:hover::before{opacity:1;}
+
+.exp-head{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;}
+.exp-ico{width:42px;height:42px;border-radius:10px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.exp-ico svg{width:20px;height:20px;stroke:var(--a);stroke-width:1.8;fill:none;}
+.exp-ico.o{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.2);}
+.exp-ico.o svg{stroke:var(--a2);}
+.exp-ico.grn{background:rgba(52,211,153,.1);border-color:rgba(52,211,153,.2);}
+.exp-ico.grn svg{stroke:var(--grn);}
+.exp-meta{}
+.exp-period{font-family:'JetBrains Mono',monospace;font-size:.59rem;letter-spacing:.12em;color:var(--a);margin-bottom:.2rem;}
+.exp-role{font-family:'Syne',sans-serif;font-weight:700;font-size:1.2rem;color:#fff;margin-bottom:.15rem;}
+.exp-co{font-size:.85rem;color:var(--mut);}
+.chips{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem;}
+.chip{font-family:'JetBrains Mono',monospace;font-size:.57rem;padding:.18rem .55rem;border-radius:4px;background:rgba(56,189,248,.08);border:1px solid rgba(56,189,248,.2);color:var(--a);}
+.chip.o{background:rgba(251,146,60,.08);border-color:rgba(251,146,60,.22);color:var(--a2);}
+.bullets{list-style:none;}
+.bullets li{font-size:.875rem;color:var(--mut);padding:.28rem 0 .28rem 1.2rem;position:relative;line-height:1.8;}
+.bullets li::before{content:'▸';position:absolute;left:0;color:var(--a);font-size:.62rem;top:.42rem;}
+.extra{display:none;}.extra.open{display:block;}
+.rm{margin-top:.6rem;display:inline-flex;align-items:center;gap:.35rem;font-family:'JetBrains Mono',monospace;font-size:.59rem;letter-spacing:.08em;text-transform:uppercase;color:var(--a);cursor:none;background:none;border:none;transition:opacity .2s;padding:0;}
+.rm:hover{opacity:.65;}
+
+/* ══════════════════════════════════════════
+   SECTION 5 — PROJECTS (horizontal carousel)
+══════════════════════════════════════════ */
+#projects{background:var(--c1);overflow:hidden;}
+.proj-controls{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.75rem;}
+.proj-arrows{display:flex;gap:.6rem;}
+.proj-arr{width:40px;height:40px;border-radius:50%;border:1px solid var(--bdr2);background:var(--c2);color:var(--mut);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .25s;flex-shrink:0;}
+.proj-arr:hover{border-color:var(--a);color:var(--a);background:rgba(56,189,248,.08);}
+.proj-arr svg{width:16px;height:16px;stroke:currentColor;stroke-width:2;fill:none;}
+.proj-dots{display:flex;gap:.5rem;align-items:center;}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--dim);transition:all .3s;cursor:pointer;}
+.pdot.active{width:22px;border-radius:4px;background:var(--a);}
+
+/* Horizontal scroll track */
+.proj-track-wrap{overflow:hidden;}
+.proj-track{
+  display:flex;gap:1.1rem;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:1rem;cursor:grab;
+}
+.proj-track::-webkit-scrollbar{height:0;}
+.proj-track:active{cursor:grabbing;}
+
+.proj-card{
+  flex:0 0 360px;scroll-snap-align:start;
+  background:var(--c2);border:1px solid var(--bdr);border-radius:16px;
+  overflow:hidden;display:flex;flex-direction:column;
+  transform-style:preserve-3d;
+  transition:border-color .3s,box-shadow .3s,transform .35s cubic-bezier(.16,1,.3,1);
+  will-change:transform;
+}
+.proj-card:hover{border-color:rgba(56,189,248,.28);box-shadow:0 20px 55px rgba(0,0,0,.55);}
+.proj-img-w{overflow:hidden;height:190px;position:relative;}
+.proj-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s cubic-bezier(.16,1,.3,1);}
+.proj-card:hover .proj-img{transform:scale(1.06);}
+/* Number overlay */
+.proj-num-over{position:absolute;top:12px;left:14px;font-family:'Syne',sans-serif;font-weight:800;font-size:1.25rem;color:rgba(255,255,255,.85);background:rgba(4,7,14,.5);backdrop-filter:blur(6px);padding:.15rem .55rem;border-radius:6px;border:1px solid rgba(255,255,255,.1);}
+/* category badge */
+.proj-cat{position:absolute;top:12px;right:14px;font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:.18rem .6rem;border-radius:100px;background:rgba(56,189,248,.15);border:1px solid rgba(56,189,248,.25);color:var(--a);backdrop-filter:blur(8px);}
+
+.proj-body{padding:1.45rem;flex:1;display:flex;flex-direction:column;}
+.proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:.98rem;color:#fff;margin-bottom:.55rem;line-height:1.3;}
+.proj-short{font-size:.845rem;color:var(--mut);line-height:1.8;flex:1;}
+.proj-more{display:none;font-size:.845rem;color:var(--mut);line-height:1.8;margin-top:.6rem;border-top:1px solid var(--bdr);padding-top:.6rem;}
+.proj-more.open{display:block;}
+.proj-stack{display:flex;flex-wrap:wrap;gap:.32rem;margin-top:.85rem;}
+.prm{margin-top:.85rem;display:inline-flex;align-items:center;gap:.3rem;font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;text-transform:uppercase;color:var(--a);cursor:none;background:none;border:none;padding:0;}
+.prm:hover{text-decoration:underline;}
+
+/* ══════════════════════════════════════════
+   SECTION 6 — EDUCATION
+══════════════════════════════════════════ */
+#education{background:var(--c0);}
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.edu-card{
+  background:var(--c2);border:1px solid var(--bdr);border-radius:14px;
+  padding:1.65rem;
+  transition:border-color .3s,transform .38s cubic-bezier(.16,1,.3,1),box-shadow .38s;
+  position:relative;overflow:hidden;
+}
+.edu-card:hover{border-color:rgba(56,189,248,.25);transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,.4);}
+.edu-card::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(56,189,248,.04) 50%,transparent 62%);background-size:220% 100%;animation:shimAni 5.5s linear infinite;pointer-events:none;}
+.edu-top{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem;}
+.edu-ico{width:44px;height:44px;border-radius:12px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.edu-ico svg{width:20px;height:20px;stroke:var(--a);stroke-width:1.8;fill:none;}
+.edu-ico.o{background:rgba(251,146,60,.1);border-color:rgba(251,146,60,.2);}
+.edu-ico.o svg{stroke:var(--a2);}
+.edu-ico.pur{background:rgba(167,139,250,.1);border-color:rgba(167,139,250,.2);}
+.edu-ico.pur svg{stroke:var(--pur);}
+.edu-year{font-family:'JetBrains Mono',monospace;font-size:.59rem;letter-spacing:.1em;color:var(--a);margin-bottom:.3rem;}
+.edu-deg{font-family:'Syne',sans-serif;font-weight:700;font-size:.97rem;color:#fff;margin-bottom:.2rem;line-height:1.25;}
+.edu-sch{font-size:.845rem;color:var(--mut);margin-bottom:.75rem;}
+.edu-pills{display:flex;flex-wrap:wrap;gap:.38rem;}
+.epill{font-family:'JetBrains Mono',monospace;font-size:.57rem;padding:.16rem .52rem;border-radius:4px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.15);color:var(--a);}
+
+/* ══════════════════════════════════════════
+   INTERESTS MARQUEE
+══════════════════════════════════════════ */
+.int-strip{background:var(--c1);border-top:1px solid var(--bdr);border-bottom:1px solid var(--bdr);padding:.9rem 0;overflow:hidden;}
+.int-track{display:flex;gap:2.5rem;white-space:nowrap;animation:marq 24s linear infinite;}
+.int-track:hover{animation-play-state:paused;}
+.int-item{display:inline-flex;align-items:center;gap:.45rem;font-size:.8rem;color:rgba(255,255,255,.38);flex-shrink:0;}
+.int-sep{color:var(--dim);}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══════════════════════════════════════════
+   SECTION 7 — CONNECT
+══════════════════════════════════════════ */
+#connect{background:var(--c1);}
+.connect-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.conn-tagline{font-size:.93rem;color:var(--mut);line-height:1.9;margin-bottom:1.5rem;font-weight:300;}
+.role-badges{display:flex;flex-wrap:wrap;gap:.45rem;margin-bottom:1.75rem;}
+.rbadge{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.07em;padding:.3rem .82rem;border-radius:100px;background:rgba(56,189,248,.07);border:1px solid rgba(56,189,248,.18);color:rgba(255,255,255,.55);transition:all .25s;}
+.rbadge:hover{background:rgba(56,189,248,.16);color:var(--a);}
+.conn-cta{display:flex;gap:.75rem;flex-wrap:wrap;}
+.c-cards{display:flex;flex-direction:column;gap:.62rem;}
+.c-card{display:flex;align-items:center;gap:.9rem;padding:1rem 1.3rem;background:var(--c2);border:1px solid var(--bdr);border-radius:12px;text-decoration:none;color:inherit;transition:border-color .3s,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s;}
+.c-card:hover{border-color:rgba(56,189,248,.35);transform:translateX(5px);box-shadow:0 5px 22px rgba(0,0,0,.3);}
+.c-ico{width:38px;height:38px;border-radius:9px;flex-shrink:0;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.15);display:flex;align-items:center;justify-content:center;}
+.c-ico svg{width:17px;height:17px;stroke:var(--a);stroke-width:1.8;fill:none;}
+.c-lbl{font-family:'JetBrains Mono',monospace;font-size:.57rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);}
+.c-val{font-size:.855rem;color:rgba(255,255,255,.7);}
+
+/* ══════════ FOOTER ══════════ */
+footer{background:var(--c0);border-top:1px solid var(--bdr);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+.ft{font-family:'JetBrains Mono',monospace;font-size:.56rem;letter-spacing:.1em;color:var(--dim);}
+
+/* ══════════ RESPONSIVE ══════════ */
+@media(max-width:920px){
+  body{cursor:auto;}#cur,#cur-ring{display:none;}
+  nav{padding:.78rem 1.5rem;}.nav-links{display:none;}
+  #profile{padding:6rem 1.5rem 4rem;}
+  .profile-inner{grid-template-columns:1fr;gap:2.5rem;text-align:center;}
+  .photo-zone{margin:0 auto;}
+  .self-row{justify-content:center;}
+  #opportunity{padding:5rem 1.5rem 4rem;}
+  .opp-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .stat-stack{flex-direction:row;flex-wrap:wrap;}
+  .stat-card{flex:1;min-width:130px;}
+  .sec{padding:3.5rem 1.5rem;}
+  .skills-grid{grid-template-columns:repeat(2,1fr);}
+  .sg:nth-child(3n){border-right:1px solid var(--bdr);}
+  .sg:nth-child(2n){border-right:none;}
+  .sg:nth-last-child(-n+3){border-bottom:1px solid var(--bdr);}
+  .sg:nth-last-child(-n+2){border-bottom:none;}
+  .proj-card{flex:0 0 290px;}
+  .edu-grid{grid-template-columns:1fr;}
+  .connect-grid{grid-template-columns:1fr;gap:2.5rem;}
+  footer{padding:1.25rem 1.5rem;flex-direction:column;gap:.35rem;text-align:center;}
+}
+@media(max-width:560px){
+  .skills-grid{grid-template-columns:1fr;}
+  .sg:nth-child(n){border-right:none;border-bottom:1px solid var(--bdr);}
+  .sg:last-child{border-bottom:none;}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+<div id="prog"></div>
+<canvas id="ptc"></canvas>
+
+<!-- ═══════════════ NAV ═══════════════ -->
+<nav>
+  <a href="#profile" class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Sujeet Kumar Sharma</a>
+  <ul class="nav-links">
+    <li><a href="#profile">About</a></li>
+    <li><a href="#opportunity">Overview</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#connect">Connect</a></li>
+  </ul>
+  <a href="https://wa.me/919855107897?text=Hi%20Sujeet%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="nav-hire">Hire Me</a>
+</nav>
+
+<!-- ═══════════════════════════════════════
+   SECTION 1 — PROFILE (top)
+═══════════════════════════════════════ -->
+<section id="profile">
+  <div class="profile-inner">
+
+    <!-- Photo -->
+    <div class="photo-zone sr scale" id="photoZone">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <div class="photo-ph" id="photoPH">
+            <div class="photo-ph-ico">👤</div>
+            <div class="photo-ph-txt">Add Photo</div>
+          </div>
+          <img id="photoImg" src="" alt="Sujeet Kumar Sharma"/>
+        </div>
+      </div>
+      <label class="upload-btn" for="photoFile" title="Upload photo">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+      </label>
+      <input type="file" id="photoFile" accept="image/*"/>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile-right">
+      <div class="eyebrow sr up">Profile</div>
+
+      <div class="p-name sr up d1">
+        <span class="pn-line"><span class="pn-i">Sujeet Kumar</span></span>
+        <span class="pn-line"><span class="pn-i" style="background:linear-gradient(135deg,var(--a),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Sharma</span></span>
+      </div>
+
+      <div class="p-title sr up d2">Business Analyst &nbsp;·&nbsp; 6.5+ Years &nbsp;·&nbsp; Mohali, Punjab</div>
+
+      <p class="p-bio sr up d3">Self-motivated and hardworking professional with a keen eye for detail. Experienced in requirement gathering, client handling, grooming sessions, stakeholder meetings, and delivering clear BRD/FRD/BRSM documentation across FinTech, EdTech, and SaaS domains. A multitasker and team player who brings precision, strategy, and a collaborative spirit to every engagement.</p>
+
+      <div class="sr up d4">
+        <div class="self-label">Self-Assessment</div>
+        <div class="self-row">
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Self Motivated
+          </span>
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Hard Working
+          </span>
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Keen Observer
+          </span>
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Multi-tasking
+          </span>
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Team Player
+          </span>
+          <span class="self-pill">
+            <svg viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            Cooperative
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   SECTION 2 — OPPORTUNITY
+═══════════════════════════════════════ -->
+<section id="opportunity">
+  <div class="opp-glow"></div>
+  <div class="opp-grid-bg"></div>
+  <div class="opp-inner">
+    <div>
+      <div class="live-badge sr up"><span class="live-dot"></span>&nbsp;Available for new opportunities</div>
+
+      <div class="opp-tagline" id="oppTag">
+        <span class="tl"><span class="tl-i">Strategic</span></span>
+        <span class="tl"><span class="tl-i">Business</span></span>
+        <span class="tl"><span class="tl-i">Analyst</span></span>
+      </div>
+
+      <div class="desig-row sr up d1">
+        <span class="desig-badge">✦ Business Analyst</span>
+        <span class="exp-badge">5+ yrs BA &nbsp;·&nbsp; 6.5+ yrs overall</span>
+      </div>
+
+      <p class="opp-sub sr up d2">Bridging business strategy and technology delivery across FinTech, EdTech, and SaaS. Skilled at translating complex requirements into 250+ sprint-ready user stories, leading UAT, grooming sessions, and building impactful products with precise documentation.</p>
+
+      <div class="dpills sr up d3">
+        <span class="dpill">FinTech &amp; Algo Trading</span>
+        <span class="dpill">EdTech Platform Analysis</span>
+        <span class="dpill">SaaS &amp; UAV Logistics</span>
+        <span class="dpill">Product Lifecycle Mgmt</span>
+        <span class="dpill">Requirement Gathering</span>
+        <span class="dpill">Client Handling</span>
+      </div>
+
+      <div class="opp-cta sr up d4">
+        <a href="https://wa.me/919855107897?text=Hi%20Sujeet%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+        <a href="https://mail.google.com/mail/?view=cm&to=sujeetsomusharma7@gmail.com" target="_blank" class="btn btn-primary">✉ Get in Touch</a>
+        <a href="https://www.linkedin.com/in/sujeet-kumar-sharma/" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <!-- Stat Cards -->
+    <div class="stat-stack">
+      <div class="stat-card sr right d1 shim" style="position:relative;">
+        <div class="sn"><span class="counter" data-to="250" data-dec="0">0</span><span class="ss">+</span></div>
+        <div class="sl">Sprint-Ready User Stories</div>
+      </div>
+      <div class="stat-card sr right d2 shim" style="position:relative;">
+        <div class="sn"><span class="counter" data-to="30" data-dec="0">0</span><span class="ss">%</span></div>
+        <div class="sl">Trade Execution Efficiency Gain</div>
+      </div>
+      <div class="stat-card sr right d3 shim" style="position:relative;">
+        <div class="sn"><span class="counter" data-to="50" data-dec="0">0</span><span class="ss">+</span></div>
+        <div class="sl">User Stories &amp; 15% Faster — EdTech</div>
+      </div>
+      <div class="stat-card sr right d4 shim" style="position:relative;">
+        <div class="sn"><span class="counter" data-to="6.5" data-dec="1">0</span><span class="ss">+</span></div>
+        <div class="sl">Years Experience Across 3 Domains</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   SECTION 3 — SKILLS
+═══════════════════════════════════════ -->
+<section id="skills" class="sec">
+  <div class="si">
+    <div class="eyebrow sr up">Expertise</div>
+    <h2 class="sec-ttl sr up d1">Skills &amp; <span class="g">Toolset</span></h2>
+    <div class="skills-grid">
+
+      <div class="sg sr scale d1">
+        <div class="sg-head">
+          <div class="sg-ico">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <span class="sg-ttl">Domain</span>
+        </div>
+        <div class="tags">
+          <span class="tag">FinTech</span><span class="tag">Algo Trading</span><span class="tag">FIX Protocol</span><span class="tag">Options Strategies</span><span class="tag">EdTech — Wave Platform</span><span class="tag">SaaS Business Model</span><span class="tag">UAV Logistics</span><span class="tag">B2B / B2C</span><span class="tag">Subscription Commerce</span><span class="tag">Payment Systems</span>
+        </div>
+      </div>
+
+      <div class="sg sr scale d2">
+        <div class="sg-head">
+          <div class="sg-ico o">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <span class="sg-ttl">Analysis &amp; Delivery</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Requirement Gathering</span><span class="tag">BRD / FRD</span><span class="tag">BRSM Documentation</span><span class="tag">250+ User Stories</span><span class="tag">UAT</span><span class="tag">Agile / Scrum</span><span class="tag">Use Case Design</span><span class="tag">Gap Analysis</span><span class="tag">Grooming Sessions</span><span class="tag">Client Handling</span><span class="tag">Stakeholder Meetings</span><span class="tag">Product Roadmap</span><span class="tag">Competitor Analysis</span>
+        </div>
+      </div>
+
+      <div class="sg sr scale d3">
+        <div class="sg-head">
+          <div class="sg-ico grn">
+            <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <span class="sg-ttl">Tools &amp; Platforms</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Jira</span><span class="tag">Chargebee</span><span class="tag">Salesforce</span><span class="tag">MixPanel</span><span class="tag">Onextel</span><span class="tag">Sendgrid</span><span class="tag">Msg91</span><span class="tag">TradingView</span><span class="tag">Stripe</span><span class="tag">HDFC / UPI</span><span class="tag">TestLink</span><span class="tag">Figma</span><span class="tag">Confluence</span>
+        </div>
+      </div>
+
+      <div class="sg sr scale d4">
+        <div class="sg-head">
+          <div class="sg-ico pur">
+            <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="sg-ttl">Technical</span>
+        </div>
+        <div class="tags">
+          <span class="tag">SQL</span><span class="tag">REST API</span><span class="tag">Python</span><span class="tag">Linux</span><span class="tag">Webhooks</span><span class="tag">JSON</span><span class="tag">FIX Protocol Tags</span><span class="tag">Backtesting Logic</span><span class="tag">Signal Automation</span><span class="tag">Strike Selection Logic</span><span class="tag">Payoff Curve Analysis</span><span class="tag">Excel / Sheets</span>
+        </div>
+      </div>
+
+      <div class="sg sr scale d5">
+        <div class="sg-head">
+          <div class="sg-ico red">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <span class="sg-ttl">Trading Indicators</span>
+        </div>
+        <div class="tags">
+          <span class="tag">RSI</span><span class="tag">MACD</span><span class="tag">EMA</span><span class="tag">Bollinger Bands</span><span class="tag">Supertrend</span><span class="tag">Options Greeks</span><span class="tag">OTM / ATM / ITM</span><span class="tag">TWAP / POV / Iceberg</span><span class="tag">Directional Strategies</span><span class="tag">Non-Directional Strategies</span>
+        </div>
+      </div>
+
+      <div class="sg sr scale d6">
+        <div class="sg-head">
+          <div class="sg-ico">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span class="sg-ttl">Design &amp; Collaboration</span>
+        </div>
+        <div class="tags">
+          <span class="tag">Wireframing (Figma)</span><span class="tag">Flow Diagrams</span><span class="tag">Sprint Planning</span><span class="tag">Backlog Grooming</span><span class="tag">Defect Reporting</span><span class="tag">PowerPoint</span><span class="tag">AI Tools</span><span class="tag">Functional Decomposition</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   SECTION 4 — EXPERIENCE
+═══════════════════════════════════════ -->
+<section id="experience" class="sec">
+  <div class="si">
+    <div class="eyebrow sr up">Career</div>
+    <h2 class="sec-ttl sr up d1">Professional <span class="g">Experience</span></h2>
+    <div class="timeline">
+
+      <div class="exp-item sr left d1">
+        <div class="exp-node"></div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <div class="exp-ico">
+              <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-period">APR 2022 — PRESENT &nbsp;·&nbsp; 3+ YRS</div>
+              <div class="exp-role">Business Analyst</div>
+              <div class="exp-co">Utrade Solutions Pvt Ltd &nbsp;·&nbsp; Mohali &nbsp;·&nbsp; FinTech &amp; Algo Trading</div>
+            </div>
+          </div>
+          <div class="chips">
+            <span class="chip">30% efficiency ↑</span><span class="chip">2× order speed</span><span class="chip">FIX Protocol</span><span class="chip o">250+ User Stories</span><span class="chip o">Subscription Model</span>
+          </div>
+          <ul class="bullets">
+            <li>Improved trade execution efficiency by 30% and accelerated order processing by 2× through optimised algorithmic logic and rigorous UAT for B2B and B2C clients.</li>
+            <li>Led end-to-end design of TWAP, Iceberg, POV, Display Size, Incognito, and Order on Time algorithms with no-code, one-click deployment for non-technical traders.</li>
+            <li>Involved in requirement gathering, grooming sessions, client walkthroughs, and stakeholder discussions — translating business needs into 250+ well-defined user stories.</li>
+            <li>Authored BRD, FRD, and BRSM documents; conducted gap analysis, use case design, and functional decomposition to drive precise development cycles.</li>
+          </ul>
+          <div class="extra" id="exp1">
+            <ul class="bullets">
+              <li>Validated FIX protocol messages (tags 35, 55, 54, 38) for order lifecycle management and broker/dealer compliance.</li>
+              <li>Designed subscription model integrating Chargebee, Salesforce, SendGrid, OneXtel — automated billing, CRM syncing, UTM coupon attribution, autopay toggling.</li>
+              <li>Defined signal-based execution: TradingView alert → JSON webhook → broker API → automated order with configurable entry/exit parameters and lot size validation.</li>
+              <li>Validated strike selection logic: ATM for neutral strategies, OTM for directional, ITM for hedging — with expiry filters, Greeks thresholds, and slippage control.</li>
+              <li>Analysed payoff curve logic for Bull Call Spread, Iron Condor, Straddle — mapping max profit, max loss, and breakeven zones ensuring execution respected P&amp;L profiles.</li>
+              <li>Integrated Stripe, HDFC, UPI payment gateways with trading workflows for B2C post-payment order placement.</li>
+              <li>Benchmarked Sensibull, Dhan, Zerodha for competitive UX insights. Led defect resolution and regression cycles across web and mobile.</li>
+            </ul>
+          </div>
+          <button class="rm" onclick="toggle('exp1',this)">Read More ▾</button>
+        </div>
+      </div>
+
+      <div class="exp-item sr left d2">
+        <div class="exp-node"></div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <div class="exp-ico o">
+              <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-period">DEC 2020 — MAR 2022 &nbsp;·&nbsp; ~1.5 YRS</div>
+              <div class="exp-role">Business Analyst</div>
+              <div class="exp-co">Vedantu Innovation Pvt Ltd &nbsp;·&nbsp; Bengaluru &nbsp;·&nbsp; EdTech</div>
+            </div>
+          </div>
+          <div class="chips">
+            <span class="chip">15% delivery ↓</span><span class="chip">50+ user stories</span><span class="chip">20% fewer UI tickets</span><span class="chip o">Wave Platform</span>
+          </div>
+          <ul class="bullets">
+            <li>Conducted in-depth analysis of Vedantu's Wave Platform — studying live interactive teaching model, student engagement flows, and UX to identify gaps and recommend improvements.</li>
+            <li>Involved in client meetings, requirement discussions, grooming sessions, and BRD/FRD/User Story documentation for CRM and payment modules.</li>
+            <li>Led automation and process optimisation reducing delivery timelines by 15%; produced 50+ sprint-ready user stories with Product, Engineering, and QA.</li>
+          </ul>
+          <div class="extra" id="exp2">
+            <ul class="bullets">
+              <li>Introduced structured defect reporting in Jira and TestLink, streamlining QA and significantly reducing regression time.</li>
+              <li>Facilitated UX review sessions, contributing to a 20% decrease in UI-related tickets on student-facing platforms.</li>
+              <li>Mapped end-to-end student lifecycle — registration → onboarding → subscription renewal — converting friction points into actionable product stories.</li>
+            </ul>
+          </div>
+          <button class="rm" onclick="toggle('exp2',this)">Read More ▾</button>
+        </div>
+      </div>
+
+      <div class="exp-item sr left d3">
+        <div class="exp-node"></div>
+        <div class="exp-card">
+          <div class="exp-head">
+            <div class="exp-ico grn">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 17.93V18a1 1 0 0 0-2 0v1.93A8 8 0 0 1 4.07 13H6a1 1 0 0 0 0-2H4.07A8 8 0 0 1 11 4.07V6a1 1 0 0 0 2 0V4.07A8 8 0 0 1 19.93 11H18a1 1 0 0 0 0 2h1.93A8 8 0 0 1 13 19.93z"/></svg>
+            </div>
+            <div class="exp-meta">
+              <div class="exp-period">JAN 2019 — JUN 2020 &nbsp;·&nbsp; ~1.5 YRS</div>
+              <div class="exp-role">Associate Software Engineer</div>
+              <div class="exp-co">Jungleworks &nbsp;·&nbsp; Chandigarh &nbsp;·&nbsp; SaaS &amp; UAV Logistics</div>
+            </div>
+          </div>
+          <div class="chips">
+            <span class="chip">250+ UAVs</span><span class="chip">25% accuracy ↑</span><span class="chip">40% config time ↓</span><span class="chip o">Drone Pick &amp; Drop</span>
+          </div>
+          <ul class="bullets">
+            <li>Conducted full business analysis for Jungleworks' UAV pick-and-drop goods delivery SaaS — mapping delivery workflows and defining operational requirements for drone logistics.</li>
+            <li>Deployed and tested 250+ UAV systems with sensors; improved data accuracy by 25% through optimised calibration techniques.</li>
+            <li>Configured Pixhawk flight controllers using PX4 firmware; automated mission setups via Mission Planner and ArduPilot, reducing config time by 40%.</li>
+          </ul>
+          <div class="extra" id="exp3">
+            <ul class="bullets">
+              <li>Conducted Quadcopter vs. Hexacopter performance analysis across payload, power efficiency, and stability to inform fleet hardware decisions.</li>
+              <li>Documented UAV system architecture, flight logs, and protocols ensuring cross-team knowledge transfer.</li>
+            </ul>
+          </div>
+          <button class="rm" onclick="toggle('exp3',this)">Read More ▾</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   SECTION 5 — PROJECTS (horizontal)
+═══════════════════════════════════════ -->
+<section id="projects" class="sec">
+  <div class="si">
+    <div class="proj-controls">
+      <div>
+        <div class="eyebrow sr up">Work</div>
+        <h2 class="sec-ttl sr up d1" style="margin-bottom:0;">Key <span class="g">Projects</span></h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.85rem;align-items:flex-end;">
+        <div class="proj-dots" id="projDots">
+          <div class="pdot active" onclick="scrollToCard(0)"></div>
+          <div class="pdot" onclick="scrollToCard(1)"></div>
+          <div class="pdot" onclick="scrollToCard(2)"></div>
+          <div class="pdot" onclick="scrollToCard(3)"></div>
+        </div>
+        <div class="proj-arrows">
+          <button class="proj-arr" onclick="moveProj(-1)">
+            <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="proj-arr" onclick="moveProj(1)">
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-track-wrap">
+      <div class="proj-track" id="projTrack">
+
+        <div class="proj-card sr scale d1">
+          <div class="proj-img-w">
+            <img class="proj-img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=700&q=80&auto=format&fit=crop" alt="Algo Trading" loading="lazy"/>
+            <div class="proj-num-over">01</div>
+            <div class="proj-cat">FinTech</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Signal-Based Execution &amp; Algo Strategy Automation</div>
+            <p class="proj-short">End-to-end design of signal-to-execution automation — TradingView chart alerts through to real-time broker order placement. TWAP, Iceberg, strike selection, and payoff curve analysis.</p>
+            <div class="proj-more" id="p1"><strong style="color:rgba(255,255,255,.75)">Signal Pipeline:</strong> TradingView trigger → JSON webhook → backend API → broker order with lot size &amp; exchange settings.<br><br><strong style="color:rgba(255,255,255,.75)">Strike Selection:</strong> ATM (neutral), OTM (directional), ITM (hedging) — filtered by liquidity, expiry, Delta/Theta thresholds.<br><br><strong style="color:rgba(255,255,255,.75)">Payoff Curves:</strong> Mapped max profit, max loss, breakeven for Iron Condor, Straddle, Bull Call Spread. Validated execution against P&amp;L profiles.</div>
+            <div class="proj-stack"><span class="tag">TradingView</span><span class="tag">Webhooks</span><span class="tag">Strike Selection</span><span class="tag">Payoff Curves</span><span class="tag">FIX Protocol</span><span class="tag">Greeks</span></div>
+            <button class="prm" onclick="toggleP('p1',this)">Read More ▾</button>
+          </div>
+        </div>
+
+        <div class="proj-card sr scale d2">
+          <div class="proj-img-w">
+            <img class="proj-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80&auto=format&fit=crop" alt="Subscription System" loading="lazy"/>
+            <div class="proj-num-over">02</div>
+            <div class="proj-cat">SaaS</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Subscription &amp; Monetization System — FinTech SaaS</div>
+            <p class="proj-short">Configurable multi-plan subscription platform with automated billing, CRM syncing, UTM-based coupon attribution, and omni-channel notifications (email + SMS).</p>
+            <div class="proj-more" id="p2"><strong style="color:rgba(255,255,255,.75)">Plans &amp; Billing:</strong> Daily/weekly/monthly plans via Chargebee — activation, upgrade, proration, retry logic in BRS documentation.<br><br><strong style="color:rgba(255,255,255,.75)">Attribution:</strong> UTM → clients_utm table → first-use coupon validation → MixPanel ROI tracking.<br><br><strong style="color:rgba(255,255,255,.75)">Payments:</strong> Stripe, HDFC, UPI integrated — post-payment triggers activate subscriptions and unlock strategy execution.</div>
+            <div class="proj-stack"><span class="tag">Chargebee</span><span class="tag">Salesforce</span><span class="tag">SendGrid</span><span class="tag">MixPanel</span><span class="tag">Stripe</span></div>
+            <button class="prm" onclick="toggleP('p2',this)">Read More ▾</button>
+          </div>
+        </div>
+
+        <div class="proj-card sr scale d3">
+          <div class="proj-img-w">
+            <img class="proj-img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80&auto=format&fit=crop" alt="CRM Attribution" loading="lazy"/>
+            <div class="proj-num-over">03</div>
+            <div class="proj-cat">CRM</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Client Attribution &amp; CRM Integration</div>
+            <p class="proj-short">UTM mapping system linking acquisition sources to CRM behaviour, coupon logic, and subscription onboarding for precise end-to-end marketing attribution.</p>
+            <div class="proj-more" id="p3">UTM capture → clients_utm table → user profile match → coupon eligibility → Salesforce CRM record → email/SMS via SendGrid and Msg91. Validated SQL data integrity; confirmed real-time eligibility checks and notification triggers. Analysed MixPanel conversion to identify high-ROI channels.</div>
+            <div class="proj-stack"><span class="tag">UTM Tracking</span><span class="tag">SQL</span><span class="tag">Salesforce</span><span class="tag">MixPanel</span><span class="tag">Sendgrid</span></div>
+            <button class="prm" onclick="toggleP('p3',this)">Read More ▾</button>
+          </div>
+        </div>
+
+        <div class="proj-card sr scale d4">
+          <div class="proj-img-w">
+            <img class="proj-img" src="https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=700&q=80&auto=format&fit=crop" alt="UAV Drone" loading="lazy"/>
+            <div class="proj-num-over">04</div>
+            <div class="proj-cat">UAV / SaaS</div>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">UAV Flight Control &amp; Drone Delivery — Jungleworks</div>
+            <p class="proj-short">Full BA and development support for Jungleworks' UAV pick-and-drop goods delivery SaaS — logistics model analysis, flight controller config, and fleet benchmarking.</p>
+            <div class="proj-more" id="p4">Mapped drone delivery workflows — pickup → transit → drop-off — translating requirements into product specs. Deployed 250+ UAVs with Pixhawk/PX4; validated RTL, Loiter, ESC calibration. Automated mission setups via Mission Planner and ArduPilot (40% config saved). Quadcopter vs. Hexacopter analysis informed fleet procurement decisions.</div>
+            <div class="proj-stack"><span class="tag">Pixhawk / PX4</span><span class="tag">ArduPilot</span><span class="tag">Mission Planner</span><span class="tag">UAV Logistics</span></div>
+            <button class="prm" onclick="toggleP('p4',this)">Read More ▾</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+   SECTION 6 — EDUCATION
+═══════════════════════════════════════ -->
+<section id="education" class="sec">
+  <div class="si">
+    <div class="eyebrow sr up">Academic Background</div>
+    <h2 class="sec-ttl sr up d1">Education &amp; <span class="g">Credentials</span></h2>
+    <div class="edu-grid">
+
+      <div class="edu-card sr up d1">
+        <div class="edu-top">
+          <div class="edu-ico">
+            <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="edu-year">2015 – 2019</div>
+            <div class="edu-deg">B.Tech — Computer Science &amp; Engineering</div>
+          </div>
+        </div>
+        <div class="edu-sch">Lovely Professional University, Jalandhar, Punjab</div>
+        <div class="edu-pills"><span class="epill">CGPA 7.78</span><span class="epill">Roll 144411</span></div>
+      </div>
+
+      <div class="edu-card sr up d2">
+        <div class="edu-top">
+          <div class="edu-ico o">
+            <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div>
+            <div class="edu-year">2013 – 2014</div>
+            <div class="edu-deg">Class XII — Intermediate</div>
+          </div>
+        </div>
+        <div class="edu-sch">SDDT Intermediate College, Gorakhpur, Uttar Pradesh</div>
+        <div class="edu-pills"><span class="epill">71.80%</span></div>
+      </div>
+
+      <div class="edu-card sr up d3">
+        <div class="edu-top">
+          <div class="edu-ico pur">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <div class="edu-year">2011 – 2014</div>
+            <div class="edu-deg">Class X — Secondary</div>
+          </div>
+        </div>
+        <div class="edu-sch">Assumption Public School, Gorakhpur, Uttar Pradesh</div>
+        <div class="edu-pills"><span class="epill">CGPA 8.00</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INTERESTS MARQUEE -->
+<div class="int-strip">
+  <div class="int-track">
+    <span class="int-item"><span>🏏</span>Cricket</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🍳</span>Cooking</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🎵</span>Music</span><span class="int-sep">·</span>
+    <span class="int-item"><span>📚</span>Reading</span><span class="int-sep">·</span>
+    <span class="int-item"><span>✈️</span>Travelling</span><span class="int-sep">·</span>
+    <span class="int-item"><span>💻</span>New Technologies</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🌐</span>Surfing the Internet</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🏏</span>Cricket</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🍳</span>Cooking</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🎵</span>Music</span><span class="int-sep">·</span>
+    <span class="int-item"><span>📚</span>Reading</span><span class="int-sep">·</span>
+    <span class="int-item"><span>✈️</span>Travelling</span><span class="int-sep">·</span>
+    <span class="int-item"><span>💻</span>New Technologies</span><span class="int-sep">·</span>
+    <span class="int-item"><span>🌐</span>Surfing the Internet</span><span class="int-sep">·</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+   SECTION 7 — CONNECT
+═══════════════════════════════════════ -->
+<section id="connect" class="sec">
+  <div class="si">
+    <div class="connect-grid">
+      <div>
+        <div class="eyebrow sr up">Let's Connect</div>
+        <h2 class="sec-ttl sr up d1">Open to <span class="g">Opportunities</span></h2>
+        <p class="conn-tagline sr up d2">Looking for a Business Analyst, Product Analyst, or delivery-focused contributor across FinTech, EdTech, or SaaS? I bring cross-industry experience, strong documentation skills, proven stakeholder management, and a collaborative spirit — ready to define requirements, lead UAT, and bridge business and tech.</p>
+        <div class="role-badges sr up d3">
+          <span class="rbadge">Business Analyst</span><span class="rbadge">Product Analyst</span>
+          <span class="rbadge">Product Owner</span><span class="rbadge">BA — FinTech / EdTech</span>
+          <span class="rbadge">SaaS Product Roles</span><span class="rbadge">Agile Delivery BA</span>
+        </div>
+        <div class="conn-cta sr up d4">
+          <a href="https://wa.me/919855107897?text=Hi%20Sujeet%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="btn btn-wa">💬 WhatsApp</a>
+          <a href="https://mail.google.com/mail/?view=cm&to=sujeetsomusharma7@gmail.com" target="_blank" class="btn btn-primary">✉ Send Email</a>
+        </div>
+      </div>
+      <div class="c-cards sr right d2">
+        <a href="https://mail.google.com/mail/?view=cm&to=sujeetsomusharma7@gmail.com" target="_blank" class="c-card">
+          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+          <div><div class="c-lbl">Email</div><div class="c-val">sujeetsomusharma7@gmail.com</div></div>
+        </a>
+        <a href="https://wa.me/919855107897?text=Hi%20Sujeet%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20an%20opportunity." target="_blank" class="c-card">
+          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.38 2 2 0 0 1 3.6 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.1 6.1l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+          <div><div class="c-lbl">WhatsApp / Phone</div><div class="c-val">+91 98551 07897</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/sujeet-kumar-sharma/" target="_blank" class="c-card">
+          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
+          <div><div class="c-lbl">LinkedIn</div><div class="c-val">linkedin.com/in/sujeet-kumar-sharma</div></div>
+        </a>
+        <div class="c-card">
+          <div class="c-ico"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="c-lbl">Location</div><div class="c-val">Mohali, Punjab, India — 160062</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="ft">© 2025 Sujeet Kumar Sharma · Business Analyst · 6.5+ Years</span>
+  <span class="ft">Mohali, Punjab · GitHub Pages</span>
+</footer>
+
+<!-- ════════════════════ SCRIPTS ════════════════════ -->
+<script>
+/* ── CUSTOM CURSOR ── */
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function tick(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(tick);})();
+
+/* ── PROGRESS BAR ── */
+window.addEventListener('scroll',()=>{document.getElementById('prog').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';},{passive:true});
+
+/* ── PARTICLES ── */
+(()=>{
+  const c=document.getElementById('ptc'),ctx=c.getContext('2d');
+  let W,H,pts=[];
+  const resize=()=>{W=c.width=innerWidth;H=c.height=innerHeight;};
+  resize();window.addEventListener('resize',resize);
+  for(let i=0;i<55;i++)pts.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.1+.3,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,a:Math.random()*.5+.15});
+  (function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=`rgba(56,189,248,${p.a})`;ctx.fill();});
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);if(d<115){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle=`rgba(56,189,248,${(1-d/115)*.07})`;ctx.lineWidth=.5;ctx.stroke();}}
+    requestAnimationFrame(draw);
+  })();
+})();
+
+/* ── SCROLL REVEAL ── */
+const srObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');srObs.unobserve(e.target);}});
+},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+document.querySelectorAll('.sr').forEach(el=>srObs.observe(el));
+
+/* ── PROFILE NAME — staggered line clip up (on scroll into view) ── */
+const pnameLines=document.querySelectorAll('.pn-i');
+const nameObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      pnameLines.forEach((ln,i)=>{ln.style.transition=`transform .9s ${i*.18}s cubic-bezier(.16,1,.3,1)`;ln.style.transform='translateY(0)';});
+      nameObs.disconnect();
+    }
+  });
+},{threshold:.1});
+pnameLines.forEach(ln=>{ln.style.transform='translateY(110%)';});
+document.querySelector('.p-name')&&nameObs.observe(document.querySelector('.p-name'));
+
+/* ── OPPORTUNITY TAGLINE — triggers on scroll ── */
+const tagEl=document.getElementById('oppTag');
+const tagObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){tagEl.classList.add('animate');tagObs.disconnect();}});
+},{threshold:.2});
+tagEl&&tagObs.observe(tagEl);
+
+/* ── COUNTER ANIMATION ── */
+function easeOutExpo(t){return t>=1?1:1-Math.pow(2,-10*t);}
+const cntObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||0),dur=2200;
+    const sfx=el.nextElementSibling;if(sfx)sfx.style.opacity=0;
+    const t0=performance.now();
+    (function step(now){
+      const p=Math.min((now-t0)/dur,1),v=to*easeOutExpo(p);
+      el.textContent=dec>0?v.toFixed(dec):Math.floor(v);
+      if(p<1)requestAnimationFrame(step);
+      else{el.textContent=dec>0?to.toFixed(dec):to;if(sfx)sfx.style.opacity=1;}
+    })(t0);
+    cntObs.unobserve(el);
+  });
+},{threshold:.45});
+document.querySelectorAll('.counter').forEach(el=>cntObs.observe(el));
+
+/* ── 3D TILT — CARDS ── */
+document.querySelectorAll('.proj-card,.exp-card,.edu-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(900px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-4px)`;
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+
+/* ── HORIZONTAL PROJECTS CAROUSEL ── */
+const track=document.getElementById('projTrack');
+const dots=document.querySelectorAll('.pdot');
+let isDown=false,startX=0,sl=0;
+track.addEventListener('mousedown',e=>{isDown=true;track.style.cursor='grabbing';startX=e.pageX-track.offsetLeft;sl=track.scrollLeft;});
+track.addEventListener('mouseleave',()=>{isDown=false;track.style.cursor='grab';});
+track.addEventListener('mouseup',()=>{isDown=false;track.style.cursor='grab';});
+track.addEventListener('mousemove',e=>{if(!isDown)return;e.preventDefault();track.scrollLeft=sl-(e.pageX-track.offsetLeft-startX)*1.4;});
+function moveProj(dir){const w=track.querySelector('.proj-card').offsetWidth+18;track.scrollBy({left:dir*w,behavior:'smooth'});}
+function scrollToCard(i){const w=track.querySelector('.proj-card').offsetWidth+18;track.scrollTo({left:i*w,behavior:'smooth'});}
+track.addEventListener('scroll',()=>{
+  const w=track.querySelector('.proj-card').offsetWidth+18;
+  const idx=Math.round(track.scrollLeft/w);
+  dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+},{passive:true});
+
+/* ── NAV ACTIVE ── */
+const allSecs=document.querySelectorAll('section[id]'),navAs=document.querySelectorAll('.nav-links a');
+const navObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)navAs.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});
+},{threshold:.35});
+allSecs.forEach(s=>navObs.observe(s));
+
+/* ── READ MORE ── */
+function toggle(id,btn){const el=document.getElementById(id),o=el.classList.toggle('open');btn.textContent=o?'Show Less ▴':'Read More ▾';}
+function toggleP(id,btn){const el=document.getElementById(id),o=el.classList.toggle('open');btn.textContent=o?'Show Less ▴':'Read More ▾';}
+
+/* ── PHOTO UPLOAD ── */
+document.getElementById('photoFile').addEventListener('change',function(){
+  const f=this.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    const img=document.getElementById('photoImg');
+    img.src=e.target.result;img.style.display='block';
+    document.getElementById('photoPH').style.display='none';
+  };
+  r.readAsDataURL(f);
+});
+</script>
+</body>
+</html>
