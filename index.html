@@ -79,60 +79,63 @@ nav{
 .sec-ttl{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.025em;margin-bottom:2.5rem;line-height:1.08;}
 .sec-ttl .g{background:linear-gradient(135deg,var(--a),rgba(255,255,255,.72));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-/* ══════════════════════════════════════════
-   SECTION 1 — PROFILE
-══════════════════════════════════════════ */
-#profile{
-  min-height:100vh;background:var(--c1);
-  display:flex;align-items:center;
-  padding:7rem 3rem 5rem;
-  position:relative;overflow:hidden;
-  border-bottom:1px solid var(--bdr);
-}
-#profile::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background:radial-gradient(ellipse 70% 55% at 30% 50%,rgba(56,189,248,.09),transparent 65%),
-             radial-gradient(ellipse 50% 45% at 85% 20%,rgba(167,139,250,.07),transparent 55%);
-  animation:meshShift 14s ease-in-out infinite alternate;
-}
-@keyframes meshShift{0%{opacity:1}100%{opacity:.6}}
-#profile::after{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
-  background-size:52px 52px;
-  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
-}
-.profile-inner{
-  max-width:1160px;margin:0 auto;width:100%;
-  display:grid;grid-template-columns:auto 1fr;gap:5rem;align-items:center;
-  position:relative;z-index:2;
-}
-.photo-zone{position:relative;flex-shrink:0;width:240px;height:240px;}
-.photo-zone::before{content:'';position:absolute;inset:-14px;border-radius:50%;border:2px dashed rgba(56,189,248,.22);animation:orb 22s linear infinite;}
-.photo-zone::after{content:'';position:absolute;inset:-14px;border-radius:50%;border:2px solid transparent;border-top-color:var(--a);border-right-color:rgba(56,189,248,.35);animation:orb 6s linear infinite;filter:drop-shadow(0 0 6px rgba(56,189,248,.6));}
-@keyframes orb{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.photo-ring{width:240px;height:240px;border-radius:50%;background:conic-gradient(var(--a),#60a5fa,var(--a2),var(--a));padding:3px;animation:orb 5s linear infinite;position:relative;z-index:1;}
-.photo-inner{width:100%;height:100%;border-radius:50%;background:var(--c2);overflow:hidden;display:flex;align-items:center;justify-content:center;animation:orb 5s linear infinite reverse;}
-#photoImg{width:100%;height:100%;object-fit:cover;object-position:center top;display:none;}
-.photo-ph{display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--mut);}
-.photo-ph-ico{font-size:3.2rem;opacity:.4;}
-.photo-ph-txt{font-family:'JetBrains Mono',monospace;font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;opacity:.4;}
-.upload-btn{position:absolute;bottom:8px;right:8px;width:38px;height:38px;border-radius:50%;background:var(--a);border:3px solid var(--c1);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;box-shadow:0 4px 20px rgba(56,189,248,.5);transition:transform .25s,box-shadow .25s;}
-.upload-btn:hover{transform:scale(1.15);box-shadow:0 8px 30px rgba(56,189,248,.65);}
-.upload-btn svg{width:16px;height:16px;stroke:#0d1526;stroke-width:2.5;fill:none;}
-#photoFile{display:none;}
-.p-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.3rem,4.2vw,3.6rem);letter-spacing:-.03em;line-height:.95;margin-bottom:.5rem;}
-.p-name .pn-line{display:block;overflow:hidden;}
-.p-name .pn-i{display:block;}
-.p-title{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:1.25rem;}
-.p-bio{font-size:.97rem;color:rgba(220,236,250,.75);line-height:1.92;margin-bottom:1.75rem;font-weight:300;max-width:570px;}
-.self-label{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);margin-bottom:.65rem;display:flex;align-items:center;gap:.75rem;}
-.self-label::before{content:'';width:18px;height:1px;background:var(--mut);}
-.self-row{display:flex;flex-wrap:wrap;gap:.45rem;}
-.self-pill{display:inline-flex;align-items:center;gap:.45rem;font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;padding:.38rem .85rem;border:1px solid var(--bdr2);border-radius:100px;color:var(--mut);background:var(--c2);transition:all .25s;}
-.self-pill svg{width:12px;height:12px;stroke:var(--a);stroke-width:2;fill:none;flex-shrink:0;}
-.self-pill:hover{border-color:rgba(56,189,248,.4);color:var(--txt);background:var(--c3);}
+<!-- ═══════════════════════════════════════
+   SECTION 1 — PROFILE (top)
+═══════════════════════════════════════ -->
+<section id="profile">
+  <div class="profile-inner">
 
+    <!-- Photo -->
+    <div class="photo-zone sr scale">
+      <div class="photo-ring">
+        <div class="photo-inner">
+          <img id="photoImg" src="SUJEET.png" alt="Sujeet Kumar Sharma"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Info -->
+    <div class="profile-right">
+      <div class="eyebrow sr up">Profile</div>
+
+      <div class="p-name sr up d1">
+        <span class="pn-line">
+          <span class="pn-i">Sujeet Kumar</span>
+        </span>
+        <span class="pn-line">
+          <span class="pn-i" style="background:linear-gradient(135deg,var(--a),#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">
+            Sharma
+          </span>
+        </span>
+      </div>
+
+      <div class="p-title sr up d2">
+        Business Analyst &nbsp;·&nbsp; 6.5+ Years &nbsp;·&nbsp; Mohali, Punjab
+      </div>
+
+      <p class="p-bio sr up d3">
+        Self-motivated and hardworking professional with a keen eye for detail. 
+        Experienced in requirement gathering, client handling, grooming sessions, 
+        stakeholder meetings, and delivering clear BRD/FRD/BRSM documentation 
+        across FinTech, EdTech, and SaaS domains. A multitasker and team player 
+        who brings precision, strategy, and a collaborative spirit to every engagement.
+      </p>
+
+      <div class="sr up d4">
+        <div class="self-label">Self-Assessment</div>
+        <div class="self-row">
+          <span class="self-pill">Self Motivated</span>
+          <span class="self-pill">Hard Working</span>
+          <span class="self-pill">Keen Observer</span>
+          <span class="self-pill">Multi-tasking</span>
+          <span class="self-pill">Team Player</span>
+          <span class="self-pill">Cooperative</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 /* ══════════════════════════════════════════
    SECTION 2 — OPPORTUNITY
 ══════════════════════════════════════════ */
